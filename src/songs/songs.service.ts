@@ -38,4 +38,10 @@ export class SongsService {
       return error;      
     }
   }
+
+  async findfree(){
+    console.log("findfree");
+    return await this.db.song.findMany({where:{Ar:0}});
+  }
+
 }

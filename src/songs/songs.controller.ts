@@ -16,7 +16,12 @@ export class SongsController {
   findAll() {
     return this.songsService.findAll();
   }
-
+  
+  @Get('free')
+  findfree(){
+    return this.songsService.findfree();
+  }
+  
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.songsService.findOne(+id);

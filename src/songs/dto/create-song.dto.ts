@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsPositive, IsString } from "class-validator";
+import { IsNotEmpty, IsNumber, IsPositive, IsString, Min } from "class-validator";
 
 export class CreateSongDto {
     @IsNotEmpty()
@@ -13,6 +13,6 @@ export class CreateSongDto {
     Hossz: number;
     @IsNotEmpty()
     @IsNumber()
-    @IsPositive()
+    @Min(0)
     Ar: number;
 }
