@@ -2,8 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { CreateSongDto } from './dto/create-song.dto';
 import { UpdateSongDto } from './dto/update-song.dto';
 import { PrismaService } from 'src/prisma.service';
-import { count } from 'console';
-import { groupBy } from 'rxjs';
 
 
 @Injectable()
