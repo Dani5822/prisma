@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsPositive, IsString, Min } from "class-validator";
+import { IsNotEmpty, IsNumber, IsOptional, IsPositive, IsString, Max, Min } from "class-validator";
 
 export class CreateSongDto {
     @IsNotEmpty()
@@ -15,4 +15,9 @@ export class CreateSongDto {
     @IsNumber()
     @Min(0)
     Ar: number;
+    @IsNotEmpty()
+    @IsNumber()
+    @Min(1)
+    @Max(5)
+    ertekeles: number;
 }

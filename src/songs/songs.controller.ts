@@ -17,12 +17,26 @@ export class SongsController {
     return this.songsService.findAll();
   }
   
-  @Get('free')
+  @Get('/free')
   findfree(){
     return this.songsService.findfree();
   }
+
+  @Get('/top/:count(\\d+)?')
+  gettop(@Param('count') count: string){
+    if(count){
+      return this.songsService.gettop(+count);
+    }else{
+      return this.songsService.gettop(10);
+    }
+  }
   
-  @Get(':id')
+  @Get('/popularArtist')
+  groupbyszerzo(){
+    return this.songsService.groupbyszerzo();
+  }
+
+  @Get(':id(\\d+)')
   findOne(@Param('id') id: string) {
     return this.songsService.findOne(+id);
   }

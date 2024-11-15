@@ -20,4 +20,5 @@ model Song{
   Szerzo String
   Hossz Int
   Ar Int
+  ertekeles Int
 }

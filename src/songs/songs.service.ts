@@ -2,6 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { CreateSongDto } from './dto/create-song.dto';
 import { UpdateSongDto } from './dto/update-song.dto';
 import { PrismaService } from 'src/prisma.service';
+import { count } from 'console';
+import { groupBy } from 'rxjs';
 
 
 @Injectable()
@@ -40,8 +42,15 @@ export class SongsService {
   }
 
   async findfree(){
-    console.log("findfree");
     return await this.db.song.findMany({where:{Ar:0}});
+  }
+
+  async gettop(count:number){
+    return await this.db.song.findMany({orderBy:{ertekeles:'desc'}, take:count});
+  }
+
+  async groupbyszerzo(){
+    return (await this.db.song.groupBy({by:['Szerzo'],_count:{Cim:true}}));
   }
 
 }
