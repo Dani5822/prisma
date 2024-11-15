@@ -50,7 +50,7 @@ export class SongsService {
   }
 
   async groupbyszerzo(){
-    return (await this.db.song.groupBy({by:['Szerzo'],_count:{Cim:true}}));
+    return ((await this.db.song.groupBy({by:['Szerzo'],_count:{Cim:true},orderBy: {_count: {Cim: 'desc'}}}))).map((x)=>({Szerzo:x.Szerzo,songsnumber:x._count.Cim}));
   }
 
 }

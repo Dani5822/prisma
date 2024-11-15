@@ -21,4 +21,12 @@ model Song{
   Hossz Int
   Ar Int
   ertekeles Int
+  playlists Playlist[]
+}
+
+model Playlist{
+  Id Int @id @default(autoincrement())
+  Nev String
+  Songs Song[]
+
 }
